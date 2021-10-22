@@ -14,14 +14,10 @@ export const  Login = ({ match, history }) => {
     const submitForm = (e) => {
         e.preventDefault();
         axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/auth/login`, { ...userForm }).then((data) => {
+            localStorage.setItem("user_session", { token: data.data.token })
             dispatch({ type : "save user session", user_session: { token: data.data.token , isLoggedIn: true } })
-            history.push(`${match.path}/home` )
+            history.push(`${match.path}orders` )
         }, (err) => { console.log(err); setErrMessage('Wrong username/password combination, please try again!'); });
-
-        // dispatch({ type : "validate user", user: userForm })
-        // const user = users.find(u => u.username === userForm.username && u.password === userForm.password);
-        // if(user) history.push("/home")
-        // else setErrMessage('Wrong username/password combination, please try again!')
     }
     
     return (

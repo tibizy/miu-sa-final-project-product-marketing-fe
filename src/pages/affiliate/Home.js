@@ -1,11 +1,17 @@
 import { Switch, Route, Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Orders, OrderDetail, ProductDetail, Products, Login } from '.';
 
 
 export const  Home = ({ history, match }) => {
 
+    const dispatch = useDispatch();
     const isLoggedIn = useSelector(state => state.user_session?.isLoggedIn)
+
+    const logout = () => {
+        dispatch({ type : "remove user session" })
+        history.push(`${match.path}` )
+    }
 
     return (
         <div className="container">
@@ -32,6 +38,7 @@ export const  Home = ({ history, match }) => {
                         
                         <form className="d-flex">
                             <Link className="nav-link text-dark" to="/store"> Frontend </Link>
+                            <Link className="nav-link text-dark" to="#" onClick={logout}> Logout </Link>
                         </form>
                     </div>
                 </div>

@@ -1,8 +1,6 @@
 import {createStore} from 'redux';
 
-const storeReducer = (state = { products : [], orders: [], cart: [], billing: {}, user_session: { 
-    token: "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwYXRyaWNpYS5sZWJzYWNrQG1pdS5zYSIsImV4cCI6MTYzNDcyODEyMywiaWF0IjoxNjM0NjkyMTIzfQ.EYLKTAhHClstpGfz2vbJFGOWl8bnc97uJnDoU2odg3I",
-    isLoggedIn: true }, showBanner: true }, action ) => {
+const storeReducer = (state = { products : [], orders: [], cart: [], billing: {}, user_session: { }, showBanner: true }, action ) => {
     if (action.type === 'add product to cart'){
         state.products.map(p => {
             if(p.productId === action.product.productId) p.quantity -= (action.quantity || 1); return p
@@ -36,6 +34,9 @@ const storeReducer = (state = { products : [], orders: [], cart: [], billing: {}
     }
     else if (action.type === 'save user session'){
         return { ...state, user_session : action.user_session };
+    }
+    else if (action.type === 'remove user session'){
+        return { ...state, user_session : {} };
     }
     else if (action.type === 'hide banner'){
         return { ...state, showBanner : false };
