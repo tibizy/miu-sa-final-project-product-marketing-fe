@@ -62,7 +62,7 @@ export const ProductDetail = ({ history, match, ...props }) => {
                     <p>Name: <br /> {product.name || '-'}</p>
                     <p>Category: <br /> {product.category || '-'}</p>
                     <p>Description: <br /> {product.description || '-'}</p>
-                    <p>Price: <br /> ${product.amount || '-'}</p>
+                    <p>Price: <br /> ${product.amount + (product.markUp || 0) || '-'}</p>
                     <p>Quantity Left: <br /> {product.quantity - quantity || '-'}</p>
                     <div className="row">
                         <div className="col">
