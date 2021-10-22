@@ -31,7 +31,7 @@ export const ProductDetail = ({ history, match, ...props }) => {
 
     const addToCart = (product) => {
         dispatch({ type : "add product to cart", product: product, quantity });
-        setProduct({...product, quantity: product.quantity})
+        setProduct({...product, quantity: product.quantity, affiliateId: productMarkup?.affiliateId})
     }
 
     const buyNow = (product) => {
