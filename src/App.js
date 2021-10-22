@@ -11,6 +11,7 @@ function App() {
       <Router>
         <Route path={['/affiliate']} component={AffiliateHome} />
         <Route path={['/store']} component={Home} />
+        <Route path={['/']} component={Home} exact/>
       </Router>
     </div>
   );

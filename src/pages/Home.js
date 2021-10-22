@@ -34,7 +34,7 @@ export const  Home = () => {
                                 Cart
                                 <span className="badge bg-dark text-white ms-1 rounded-pill">{cart?.length}</span>
                             </Link>
-                            <Link className="nav-link text-dark" to="/admin"> Affiliate </Link>
+                            <Link className="nav-link text-dark" to="/affiliate"> Affiliate </Link>
                         </form>
                     </div>
                 </div>
