@@ -257,7 +257,7 @@ export const Checkout = ({ history, match }) => {
                     {
                             orderItems?.map(p => 
                                 <li  key={p.name} className="list-group-item d-flex justify-content-between align-items-center">
-                                    {p.name} | {p.amount * p.quantity}
+                                    {p.name} | {(p.amount + (p.markUp || 0)) * p.quantity}
                                     <span className="badge bg-primary rounded-pill">{p.quantity}</span>
                                 </li>
                             )
