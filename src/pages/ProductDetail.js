@@ -35,7 +35,7 @@ export const ProductDetail = ({ history, match, ...props }) => {
     }
 
     const buyNow = (product) => {
-        history.push(`${match.path.replace(`/${url}/:id`, '/checkout')}`, { cart: [{ ...product, quantity: quantity, affiliateId: productMarkup?.affiliateId }] });
+        history.push(`${match.path.replace(`/${url}/:id`, '/checkout')}`, { cart: [{ ...product, quantity: quantity, price: product.amount, affiliateId: productMarkup?.affiliateId }] });
     }
 
 
