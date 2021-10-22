@@ -18,7 +18,7 @@ export const ProductDetail = ({ history, match, ...props }) => {
                 var prodMarkup = data.data;
                 setProductMarkup(prodMarkup);
                 axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/products/${prodMarkup?.productId}`).then((data) => {
-                    setProduct({ ...data.data, amount: (prodMarkup?.amount || 0) + data.data?.amount });
+                    setProduct({ ...data.data, markUp: (prodMarkup?.amount || 0) });
                 })
             })
         }else{
