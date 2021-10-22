@@ -10,7 +10,7 @@ const storeReducer = (state = { products : [], orders: [], cart: [], billing: {}
             if(p.productId === action.product.productId) { p.quantity += (action.quantity || 1); return true}
             return false;
         });
-        if(!prod) state.cart.push({ ...action.product, quantity: (action.quantity || 1) })
+        if(!prod) state.cart.push({ ...action.product, quantity: (action.quantity || 1), price: action.product.amount, affiliateId: action.affiliateId })
         return { 
             ...state, 
             products: [...state.products],
